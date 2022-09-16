@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll-Dyce</title>
+    <style>
+        body{
+            background:linear-gradient(to left,pink,skyblue);
+        }
+        #container{
+            width: 500px;
+            height: 200px;
+            margin: auto;
+            border: 2px solid black;
+            border-radius: 5px;
+            border-top-color: red;
+            display: flex;
+            padding: 10px;
+            border: double;
+        }
+        #member-1{
+            width: 150px;
+            height: 150px;
+            border: 2px solid black;
+            margin: 5px;
+            text-align: center;
+            border-top-color: red ;
+            border-radius: 5px;
+            font-size: 140px;
+        }
+        #member-2{
+            width: 150px;
+            height: 150px;
+            border: 2px solid black;
+            margin: 5px;
+            text-align: center;
+            border-top-color: red ;
+            border-radius: 5px;
+            font-size: 140px;
+        }
+        #member-3{
+            width: 150px;
+            height: 150px;
+            border: 2px solid black;
+            margin: 5px;
+            text-align: center;
+            border-top-color: red ;
+            border-radius: 5px;
+            font-size: 140px;
+        }
+        button{
+            transform: translate(570px,-40px);
+            padding: 7px;
+            border-radius: 5px;
+            border: none;
+            background-color: blueviolet;
+            font-weight: bold;
+        }
+        button:hover{
+            padding: 10px;
+            background: linear-gradient(to left,rgb(100, 155, 236),rgb(149, 249, 149));
+        }
+        #winner{
+            width: 200px;
+            height: 50px;
+            box-sizing: border-box;
+            padding: 10px;
+            margin: auto;
+            border: 2px solid black;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 25px;
+            border-top-color: red ;
+            border-radius: 5px;
+        }
+        #boom{
+            text-align:center;
+            font-size: 40px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="boom">Play The Ludo 🎳</h1>
+    <div id="winner">Win-Name</div>
+    <div id="container">
+    <div id="member-1" class="dice">0</div>
+    <div id="member-2" class="dice">0</div>
+    <div id="member-3" class="dice">0</div>
+</div>
+<button onclick="myfunction()">ROLL THE DICE</button>
+</body>
+</html>
+<script>
+    function myfunction(){
+    var one=document.querySelector("#member-1");
+    one.innerHTML=Math.floor(Math.random()*6)+1;
+    var two=document.querySelector("#member-2");
+    two.innerHTML=Math.floor(Math.random()*6)+1;
+    var three=document.querySelector("#member-3");
+    three.innerHTML=Math.floor(Math.random()*6)+1;
+    var four=document.querySelector("#winner");
+    if(one.innerHTML>two.innerHTML && one.innerHTML>three.innerHTML){
+        four.innerHTML="Member-1";
+        one.style.background="green";
+    }
+    else if(one.innerHTML<two.innerHTML && one.innerHTML<three.innerHTML){
+        one.style.background="red";
+    }
+    else if(one.innerHTML===two.innerHTML && one.innerHTML===three.innerHTML){
+        one.style.background="blue";
+        four.innerHTML="Equal"
+    }
+    else{
+        one.style.background="yellow";
+    }
+    if(two.innerHTML>one.innerHTML&&two.innerHTML>three.innerHTML){
+        four.innerHTML="Member-2";
+        two.style.background="green";
+    }
+    else if(two.innerHTML<one.innerHTML && two.innerHTML<three.innerHTML){
+        two.style.background="red";
+    }
+    else if(two.innerHTML==one.innerHTML && two.innerHTML==three.innerHTML){
+        two.style.background="blue";
+        four.innerHTML="Equal";
+    }
+    else{
+        two.style.background="yellow";
+    }
+    
+    if(three.innerHTML>one.innerHTML && three.innerHTML>two.innerHTML){
+        four.innerHTML="Member-3";
+        three.style.background="green";
+    }
+    else if(three.innerHTML<one.innerHTML && three.innerHTML<two.innerHTML){
+        three.style.background="red";
+    }
+    else if(three.innerHTML==one.innerHTML && three.innerHTML==two.innerHTML){
+        three.style.background="blue";
+        four.innerHTML="Equal"
+    }
+    else{
+        three.style.background="yellow";
+    }
+    }
+</script>
