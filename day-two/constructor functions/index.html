@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin-pannel</title>
+    <style>
+      * {
+        margin: 0%;
+        padding: 0%;
+      }
+      #admin {
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        justify-content: center;
+        border: 2px solid black;
+        padding: 20px;
+        border-radius: 10px;
+        border: inset;
+        background: linear-gradient(
+          to left,
+          rgb(173, 236, 173),
+          rgb(98, 98, 243)
+        );
+      }
+      input {
+        padding: 10px;
+        border: inset;
+        border-radius: 5px;
+        margin: 5px;
+        text-align: center;
+      }
+      select {
+        padding: 10px;
+        width: 238px;
+        margin-left: 6px;
+        border: inset;
+        text-align: center;
+      }
+      h3 {
+        text-align: center;
+      }
+      #hel {
+        display: flex;
+        justify-content: space-around;
+        background-color: black;
+        color: white;
+        padding: 10px;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="hel">
+      <h1><a href="index.html">Home-Page</a></h1>
+      <h1><a href="products.html">Products-Page</a></h1>
+    </div>
+    <h3>Data Will Be storing in local-Storage</h3>
+    <form action="" id="admin">
+      <input type="text" name="" id="name" placeholder="Product-Name" />
+      <input type="text" name="" id="category" placeholder="Category" />
+      <input type="url" name="" id="image" placeholder="Product-Image-Url" />
+      <input type="number" name="" id="price" placeholder="Product-Price" />
+      <select name="" id="gender">
+        <option value="none">Choose-Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+      <input type="button" name="" id="sold" value="true" />
+      <input type="submit" name="" id="boom" />
+    </form>
+  </body>
+</html>
+<script>
+  document.querySelector("form").addEventListener("submit", myfunction);
+  var array1 = JSON.parse(localStorage.getItem("product")) || [];
+  function objects100(nam, cat, imag, pric, gend, solde) {
+    this.name = nam;
+    this.category = cat;
+    this.image = imag;
+    this.price = pric;
+    this.gender = gend;
+    this.sold = solde;
+  }
+
+  function myfunction() {
+    event.preventDefault();
+    let nam = admin.name.value;
+    let cat = admin.category.value;
+    let imag = admin.image.value;
+    let pric = admin.price.value;
+    let gend = admin.gender.value;
+    let solde = admin.sold.value;
+    var out = new objects100(nam, cat, imag, pric, gend, solde);
+    array1.push(out);
+    localStorage.setItem("product", JSON.stringify(array1));
+  }
+</script>

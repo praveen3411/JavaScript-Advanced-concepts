@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storing-Data</title>
+    <style>
+        #cont{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: repeat(5,auto);
+        }
+    </style>
+</head>
+<body>
+    <div id="cont"></div>
+</body>
+</html>
+<script>
+    var array1=JSON.parse(localStorage.getItem("dataone"))||[];
+    hellobro(array1);
+
+    function hellobro(data){
+        data.forEach(function(ele,index){
+            var box=document.createElement("div");
+
+            var one=document.createElement("h3");
+            one.innerText=ele.name;
+
+            var two=document.createElement("h4");
+            one.innerText=ele.category;
+
+            var three=document.createElement("img");
+            three.setAttribute("src",ele.image);
+
+            var four=document.createElement("p");
+            four.innerText=ele.price;
+
+            var five=document.createElement("p");
+            five.innerText=ele.gender;
+
+            var six=document.createElement("p");
+            six.innerText=ele.sold;
+
+            var seven=document.createElement("button");
+            seven.innerText="Delete";
+            seven.addEventListener("click",function(){
+                callone(ele,index);
+            })
+
+
+            
+            box.append(three,one,two,four,five,six,seven);
+            document.querySelector("#cont").append(box);  
+        })
+    }
+    
+    function callone(ele,index){
+        array1.splice(index,1)
+        localStorage.setItem("dataone",JSON.stringify(array1));
+        window.location.reload();
+
+    }
+</script>

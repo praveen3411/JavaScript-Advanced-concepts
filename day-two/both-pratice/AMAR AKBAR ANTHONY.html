@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMAR AKBAR ANTHONY</title>
+    <style>
+        h1{
+            text-align: center;
+            font-size: 35px;
+        }
+    </style>
+</head>
+<body>
+    <h1> 👀In Console output is comming 👀</h1>
+</body>
+</html>
+
+<script>
+    var AMAR={
+        name:"AMAR",
+        profession:"Singer",
+        place:"Goa"
+    };
+
+    var AKBAR={
+        name:"AkBAR",
+        profession1:"Cheif",
+        place:"Mumbai"
+    };
+
+    var ANTHONY={
+        name:"ANTHONY",
+        profession2:"Magician",
+        place:"Kashmir"
+    };
+    function output(one){
+        console.log(`${this.name} is a ${one}`);
+    }
+    output.call(AKBAR,"cheif");
+    output.call(ANTHONY,"singer");
+    output.call(AMAR,"Megician");
+   
+</script>

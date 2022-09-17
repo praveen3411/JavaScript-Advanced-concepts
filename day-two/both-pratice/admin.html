@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-COMMERCE I</title>
+    <style>
+        input{
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="one">
+        <input type="text" name="" id="name" placeholder="Enter-Name">
+        <input type="text" name="" id="category" placeholder="Enter-Catagory">
+        <input type="url" name="" id="image" placeholder="Enter-Image-url">
+        <input type="number" name="" id="price" placeholder="Enter-Price">
+        <select name="" id="gender">
+            <option value="null">Choose-Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <input type="text" name="" id="sold">
+        <input type="submit" name="" id="add">
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit",myfunction);
+    var array1=JSON.parse(localStorage.getItem("dataone"))||[];
+    function output(kali1,kali2,kali3,kali4,kali5,kali6){
+        this.name=kali1;
+        this.category=kali2;
+        this.image=kali3;
+        this.price=kali4;
+        this.gender=kali5;
+        this.sold=kali6;
+    }
+
+    function myfunction(){
+        event.preventDefault();
+        let kali1=one.name.value;
+        let kali2=one.category.value;
+        let kali3=one.image.value;
+        let kali4=one.price.value;
+        let kali5=one.gender.value;
+        let kali6=one.sold.value;
+        let comeout=new output(kali1,kali2,kali3,kali4,kali5,kali6);
+        array1.push(comeout);
+        localStorage.setItem("dataone",JSON.stringify(array1));
+    }
+</script>

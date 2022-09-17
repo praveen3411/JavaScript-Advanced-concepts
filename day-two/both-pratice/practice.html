@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructors-Practice</title>
+</head>
+<body>
+    <form action="" id="one" onsubmit="output()">
+        <input type="text" name="" id="two" placeholder="Enter-Name">
+        <input type="text" name="" id="three" placeholder="Enter-Brand">
+        <input type="number" name="" id="four" placeholder="Enter-Price">
+        <input type="submit" name="" id="five">
+    </form>
+</body>
+</html>
+<script>
+    var array1=JSON.parse(localStorage.getItem("dataone"))||[];
+    function chumma(sent1,sent2,sent3){
+        this.sent1=sent1;
+        this.sent2=sent2;
+        this.sent3=sent3;
+    }
+   function output(){
+    event.preventDefault();
+    let sent1=one.two.value;
+    let sent2=one.three.value;
+    let sent3=one.four.value;
+    let boom=new chumma(sent1,sent2,sent3);
+    array1.push(boom);
+    localStorage.setItem("dataone",JSON.stringify(array1));
+   }
+</script>

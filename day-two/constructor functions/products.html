@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data-Store-page</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+        #hel{
+            display: flex;
+            justify-content: space-around;
+            background-color: black;
+            color: white;
+            padding: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        #con{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: repeat(10,auto);
+            grid-gap: 10px;
+        }
+        #con>div{
+            width: 400px;
+            height: auto;
+            border: 2px solid black;
+            border-radius: 10px;
+            border: outset;
+        }
+        #con>div img{
+            margin-left: 30px;
+        }
+        #cone>div>h2,h3,h4,p{
+            text-align: center;
+        }
+        #con>div p+button{
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background:linear-gradient(rgb(200, 248, 200),rgb(145, 145, 248));
+            transform: translateX(100px);
+        }
+        #don{
+            margin-left: 150px;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            width: 70px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="hel">
+        <h1><a href="index.html">Home-Page</a></h1>
+        <h1><a href="products.html">Products-Page</a></h1>
+    </div>
+    
+    <div id="counter"></div>
+    <div id="con">
+
+    </div>
+</body>
+</html>
+<script>
+    var array1=JSON.parse(localStorage.getItem("product"))||[];
+
+    callone(array1);
+
+    function callone(data){
+        data.forEach(function(ele,index){
+            var box=document.createElement("div");
+
+            var one=document.createElement("h3");
+            one.innerText=ele.name;
+
+            var two=document.createElement("h4");
+            two.innerText=ele.category;
+
+            var three=document.createElement("img");
+            three.setAttribute("src",ele.image);
+
+            var four=document.createElement("p");
+            four.innerText=ele.price;
+
+            var five=document.createElement("p");
+            five.innerText=ele.gender;
+
+            var six=document.createElement("p");
+            six.setAttribute("id","sold");
+            six.innerText=ele.sold;
+
+            var seven=document.createElement("button");
+            seven.innerText="Remove";
+            seven.addEventListener("click",function(){
+                helloremove(ele,index);
+            })
+
+            var eight=document.createElement("button");
+            eight.setAttribute("id","don")
+            eight.innerText="Sold";
+            if(six.innerHTML=true){
+                eight.style.background="red";
+            }
+            else{
+                eight.style.background="green"
+            }
+
+
+            box.append(three,one,two,four,five,six,seven,eight)
+            document.querySelector("#con").append(box)
+        })
+    }
+
+    function helloremove(ele,index){
+        array1.splice(index,1);
+        localStorage.setItem("product",JSON.stringify(array1));
+        window.location.reload();
+    }
+</script>

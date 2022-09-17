@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMAR_AKBAR-ANTONY</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var AMAR={
+        name:"Amar",
+        profession:"Singer",
+        place:"Goa"
+    };
+    var AKBAR={
+        name:"Akbar",
+        profession:"Cheif",
+        place:"Mumbai"
+    };
+    var ANTONY={
+        name:"Antony",
+        profession:"Magician",
+        place:"karsmir"
+    };
+    function comeout(one,two){
+        console.log(`My name is ${this.name} and My profession is ${one} now i changed to ${two}`)
+    }
+    comeout.call(AMAR,"Singer","Cheif");
+    comeout.call(ANTONY,"Magician","singer");
+    comeout.call(AKBAR,"cheif","Magician");
+
+
+    
+</script>
