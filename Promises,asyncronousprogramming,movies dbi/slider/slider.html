@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider</title>
+</head>
+<body>
+    <button onclick="Start()">Start</button>
+    <button onclick="Stop()">Stop</button>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+    // let i=0;
+    // let id;
+    // function Start(){
+    //     let array=JSON.parse(localStorage.getItem("imagedata"))||[];
+    //     let connect=document.querySelector("#container");
+    //    id= setInterval(function(){
+    //         if(i===array.length){
+    //             i=0;
+    //         }
+    //         else{
+    //             connect.innerHTML=null;
+    //             let access=array[i];
+    //             let create=document.createElement("img");
+    //             create.setAttribute("src",access);
+    //             connect.append(create);
+    //             i++;
+    //         }
+    //     },2000)
+    // }
+    // function Stop(){
+    //     clearInterval(id);
+    // }
+    let id;
+    let i=0;
+    function Start(){
+        let array=JSON.parse(localStorage.getItem("imagedata"))||[];
+        let one=document.querySelector("#container");
+       id=setInterval(function(){
+
+        if(i==array.length){
+            i=0;
+        }
+        else{
+            one.innerHTML=null;
+            let access=array[i];
+            let create=document.createElement("img");
+            create.setAttribute("src",access);
+            one.append(create);
+            i++;
+        }
+    },2000)
+    }
+
+    function Stop(){
+        clearInterval(id);
+    }
+</script>

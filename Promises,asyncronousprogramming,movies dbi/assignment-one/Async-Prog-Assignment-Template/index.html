@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+       <link rel="stylesheet" href="/day-four/assignment-one/Async-Prog-Assignment-Template/styles/index.css">
+    </head>
+    <body>
+        <div id="container">
+            <div id="one">
+            <h1><a href="index.html">Home</a></h1>
+            <h1><a href="login.html">Login</a></h1>
+            <h1><a href="signup.html">Signup</a></h1>
+        </div>
+        </div>
+        <div id="slideshow">
+            <!--Show Slideshow here-->
+            <h1>Click on start</h1>
+        </div>
+
+        <div id="sort-buttons">
+            <button onclick="start()">Start</button>
+            <button onclick="stop()">Stop</button>
+            <!--Add sorting here-->
+        </div>  
+        <div id="movies">
+            <!--Show list of movies here-->
+            <ol type="1">
+                <li>Movie-1: Avthar</li>
+                <li>Movie-2: Shahoo</li>
+                <li>Movie-3: Salar</li>
+                <li>Movie-4: RRR</li>
+                <li>Movei-5: Bahuballi</li>
+                <li>Movie-6: Gabarsing</li>
+            </ol>
+        </div>
+    </body>
+
+</html>
+
+<script>
+//    let i=0;
+//    let id;
+//    function start(){
+//     let access=document.querySelector("#slideshow");
+//        let arr=["https://imgs.search.brave.com/lwsBTXkb921h7-aC37NVIL_RjbelusgPaqkbj0l75jM/rs:fit:1200:1080:1/g:ce/aHR0cDovL3dhbGxw/YXBlcmNhdmUuY29t/L3dwL1JDVkZTaUou/anBn","https://imgs.search.brave.com/2ASv_uWpLS5nQS3wxh7uzZXuOgUfoZXqFHgjIAFF2fg/rs:fit:948:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC52/QW11ZVk0SkJybEVF/YXNKSGR2NExBSGFE/dCZwaWQ9QXBp","https://imgs.search.brave.com/DtteHil_Y1pgHo5nRoECtFdnc9RuzWXjNTK4zHXE8as/rs:fit:500:262:1/g:ce/aHR0cHM6Ly9jZG4u/MTIzdGVsdWd1LmNv/bS9jb250ZW50L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzEy/L3NhbGFhci0xLmpw/Zw","https://imgs.search.brave.com/n0AJpBO-LiVVZ3hqj2fAq8gFVaq7-XBd-aPeZ83Qz5U/rs:fit:844:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5Y/RUNwRy1KeHVoLUZG/bGZZb1U4dG1RSGFF/SyZwaWQ9QXBp","https://imgs.search.brave.com/ONcV3OHsTdJYiuiqlDtnbIRuMPti9pBy6ZCcab0OG3c/rs:fit:1200:1080:1/g:ce/aHR0cDovL3ZvbGdh/bmdhLmNvbS93b3Jk/cHJlc3Mvd3AtY29u/dGVudC91cGxvYWRz/LzIwMTUvMDcvQmFo/dWJhbGlfMjAxNV9t/b3ZpZV9IRF93YWxs/cGFwZXJzXzAyLmpw/Zw","https://imgs.search.brave.com/w5q1UQ45kyZe-62qPCKunTnfhANtBhDv2IcdCuLRz8g/rs:fit:713:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5j/MWdYZDZiUEhRZkpE/SXFLQW9mS2hnSGFF/NyZwaWQ9QXBp"];
+//       id=setInterval(function(){
+//         if(i===arr.length){
+//             i=0;
+//         }
+//         else{
+//             access.innerHTML=null;
+//             let takeit=arr[i];
+//             let create=document.createElement("img");
+//             create.setAttribute("src",takeit);
+//             access.append(create);
+//             i++;
+//         }
+//        },2000)
+//    }
+//    function stop(){
+//     clearInterval(id);
+//    }
+let i=0;
+let id;
+function start(){
+    let take=document.querySelector("#slideshow");
+    let arr=["https://imgs.search.brave.com/lwsBTXkb921h7-aC37NVIL_RjbelusgPaqkbj0l75jM/rs:fit:1200:1080:1/g:ce/aHR0cDovL3dhbGxw/YXBlcmNhdmUuY29t/L3dwL1JDVkZTaUou/anBn","https://imgs.search.brave.com/2ASv_uWpLS5nQS3wxh7uzZXuOgUfoZXqFHgjIAFF2fg/rs:fit:948:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC52/QW11ZVk0SkJybEVF/YXNKSGR2NExBSGFE/dCZwaWQ9QXBp","https://imgs.search.brave.com/DtteHil_Y1pgHo5nRoECtFdnc9RuzWXjNTK4zHXE8as/rs:fit:500:262:1/g:ce/aHR0cHM6Ly9jZG4u/MTIzdGVsdWd1LmNv/bS9jb250ZW50L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzEy/L3NhbGFhci0xLmpw/Zw","https://imgs.search.brave.com/n0AJpBO-LiVVZ3hqj2fAq8gFVaq7-XBd-aPeZ83Qz5U/rs:fit:844:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5Y/RUNwRy1KeHVoLUZG/bGZZb1U4dG1RSGFF/SyZwaWQ9QXBp","https://imgs.search.brave.com/ONcV3OHsTdJYiuiqlDtnbIRuMPti9pBy6ZCcab0OG3c/rs:fit:1200:1080:1/g:ce/aHR0cDovL3ZvbGdh/bmdhLmNvbS93b3Jk/cHJlc3Mvd3AtY29u/dGVudC91cGxvYWRz/LzIwMTUvMDcvQmFo/dWJhbGlfMjAxNV9t/b3ZpZV9IRF93YWxs/cGFwZXJzXzAyLmpw/Zw","https://imgs.search.brave.com/w5q1UQ45kyZe-62qPCKunTnfhANtBhDv2IcdCuLRz8g/rs:fit:713:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5j/MWdYZDZiUEhRZkpE/SXFLQW9mS2hnSGFF/NyZwaWQ9QXBp"];
+  id=setInterval(function(){
+        if(i===arr.length){
+            i=0;
+        }
+        else{
+            take.innerHTML=null;
+            let cat=arr[i];
+            let crea=document.createElement("img");
+            crea.setAttribute("src",cat);
+            take.append(crea);
+            i++;
+        }
+    },3000)
+}
+function stop(){
+    clearInterval(id);
+}
+</script>

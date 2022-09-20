@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>images-page</title>
+</head>
+<body>
+    <input type="url" name="" id="one">
+    <button onclick="imagewindow()">Strore-data</button>
+    <button onclick="slidingwindow()">Sliding-window</button>
+</body>
+</html>
+<script>
+function slidingwindow(){
+    window.location.href="slider.html";
+}
+function imagewindow(){
+let access=document.querySelector("#one").value;
+let array=JSON.parse(localStorage.getItem("imagedata"))||[];
+array.push(access);
+localStorage.setItem("imagedata",JSON.stringify(array));
+document.querySelector("#one").value=null;
+}
+</script>
