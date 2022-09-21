@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updated-Details</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="boom">
+        <div><a href="index.html">Data-Store</a></div>
+        <div><a href="dashboard.html">Updated-Details</a></div>
+    </div>
+    <br>
+    <div id="attach"></div>
+</body>
+</html>
+<script>
+    let array=JSON.parse(localStorage.getItem("students"))||[];
+
+    callthefun(array);
+
+    function callthefun(data){
+        
+        data.forEach(function(ele,index){
+            let box=document.createElement("div");
+
+            let one=document.createElement("h2");
+            one.innerText=ele.name;
+
+            let two=document.createElement("h3");
+            two.innerText=ele.course;
+
+            let three=document.createElement("h4");
+            three.innerText="Unit-  "+ele.unit;
+
+            let four=document.createElement("img");
+            four.setAttribute("src",ele.image);
+
+            let five=document.createElement("h4");
+            five.innerText=ele.batch;
+
+            let six=document.createElement("button");
+            six.innerText="Remove";
+            six.addEventListener("click",function(){
+                hello(ele,index);
+            })
+
+            box.append(four,one,two,three,five,six);
+            document.querySelector("#attach").append(box);
+        })
+
+    }
+
+    function hello(ele,index){
+        array.splice(index,1);
+        localStorage.setItem("students",JSON.stringify(array));
+        window.location.reload();
+       let local= localStorage.setItem("trash",JSON.stringify(ele));
+    }
+     
+
+</script>
