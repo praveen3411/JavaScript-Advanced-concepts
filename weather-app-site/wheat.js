@@ -1,0 +1,63 @@
+const api_key = "0a7a1dbcbb604d9ce6a32c6ceb2ca4ed";
+let takeshot = `https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}`;
+
+let one = document.querySelector("#boom");
+one.addEventListener("click", myfunction);
+
+let mamma = document.querySelector("#back");
+function myfunction() {
+  let city = document.querySelector("#wheather").value;
+  let dataone = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
+  async function hello() {
+    try {
+      let boom = await fetch(dataone);
+      let boomone = await boom.json();
+      bollobhai(boomone);
+      console.log(boomone);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  hello();
+}
+function bollobhai(data) {
+  let cre = document.createElement("div");
+  mamma.innerHTML = null;
+  let one = document.createElement("h2");
+  one.innerText = `base :${data.base}`;
+
+  let two = document.createElement("h2");
+  two.innerText = `clouds :${data.cod}`;
+
+  let three = document.createElement("h3");
+  three.innerText = `name :${data.name}`;
+
+  let four = document.createElement("h2");
+  four.innerText = `time-zone :${data.timezone}`;
+
+  let five = document.createElement("h2");
+  five.innerText = `id :${data.id}`;
+
+  let six = document.createElement("h2");
+  six.innerText = `wisiblity :${data.visibility}`;
+
+  let seven = document.createElement("h4");
+  seven.innerText = `curr-temp :${data.main.temp}`;
+
+  let iframe = document.querySelector("#gmap_canvas");
+  iframe.src = `https://maps.google.com/maps?q=${data.name}%20&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+
+  cre.append(one, two, three, four, five, six, seven);
+
+  document.querySelector("#back").append(cre);
+}
+//     function getLocationWeather() {
+//   navigator.geolocation.getCurrentPosition(success);
+//   function success(position) {
+//     const latitude = position.coords.latitude;
+//     const longitude = position.coords.longitude;
+//     console.log(latitude);
+//     console.log(longitude);
+//   }
+// }
+// getLocationWeather();
