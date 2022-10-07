@@ -1,0 +1,5 @@
+point 1: npm i tsc -g  
+point 2: go inside the folder
+point 3: npm i typescript 
+point 4: package.json `start:"tsc a.ts"`
+point 5: npm start
