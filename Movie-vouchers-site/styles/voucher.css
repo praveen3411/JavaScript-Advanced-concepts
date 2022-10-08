@@ -1,0 +1,15 @@
+#navbar{
+    display: flex;
+    justify-content: space-around;
+  }
+  #voucher_list{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(50,auto);
+  }
+  #voucher_list h2,p{
+    text-align: center;
+  }
+  #voucher_list .buy_voucher{
+    transform: translateX(180px);
+  }
